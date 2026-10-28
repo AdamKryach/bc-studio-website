@@ -1,0 +1,740 @@
+# MASTER PROMPT — BLACK CLOUD DEVELOPMENT STUDIO WEBSITE
+
+## 1. Project overview
+
+Build a complete, modern, professional, responsive website for **Black Cloud**, an independent development studio established in **2021**.
+
+Black Cloud is a development studio focused on:
+- Video game development and publishing.
+- Sharing studio news, announcements, and development updates.
+- Showcasing cybersecurity tools and technical projects.
+- Participating in Capture The Flag (CTF) cybersecurity competitions.
+- Sharing research, write-ups, achievements, and experiments.
+- Providing selected games for public downloads and other games for testing only.
+
+Build a real, functional website, not just a static design or a landing page mockup. The website must have a working backend, persistent data storage, secure team authentication, and a private developer portal.
+
+**Critical requirement: This website must NOT have public user authentication.** Visitors must never be asked to create an account, log in, register, or authenticate to browse the website, read news, view tools, or access publicly available games.
+
+Only authorized studio team members can access the private administration portal.
+
+## 2. Technology and implementation
+
+Use a modern, maintainable web stack supported by Google AI Studio and the selected deployment environment.
+
+Preferred implementation:
+- Frontend: React with TypeScript.
+- Styling: Tailwind CSS or an equivalent modern styling system.
+- Backend: secure server-side API routes or a trusted backend service.
+- Database: Firebase Firestore or another suitable persistent database.
+- Admin authentication: Firebase Authentication or a properly implemented server-side authentication system.
+- File storage: Firebase Storage or equivalent secure object storage.
+- Icons: Lucide or another consistent icon library.
+
+Adapt the implementation to the capabilities of the selected environment while preserving every functional and security requirement.
+
+Do not generate only a frontend prototype. Implement the necessary database schemas, API endpoints, authorization checks, file handling, and persistent CRUD operations.
+
+Never expose administrative credentials, secret keys, service-account credentials, or private storage access tokens in frontend code.
+
+## 3. Visual identity and design
+
+Create a distinctive dark-themed identity for Black Cloud.
+
+Brand name: Black Cloud
+
+Founded: 2021
+
+Design direction:
+- Dark charcoal and almost-black backgrounds.
+- White and soft-gray typography.
+- Electric blue or violet accents.
+- Subtle cloud, terminal, grid, and digital-network motifs.
+- Elegant cards with subtle borders and restrained glow effects.
+- Modern typography with excellent readability.
+- Smooth transitions and polished hover effects.
+- Minimal but purposeful animations.
+- A professional technology-studio aesthetic rather than a generic corporate template.
+
+The design should feel like a combination of an independent game studio, a developer portfolio, and a cybersecurity research lab.
+
+Use a consistent logo treatment for Black Cloud. If no official logo asset is provided, create a simple original logo concept that can later be replaced.
+
+Avoid excessive neon effects, clutter, unnecessary animations, and oversized empty sections.
+
+The website must work perfectly on desktop, tablets, and mobile phones.
+
+## 4. Public website pages
+
+Create the following public pages.
+
+### A. Home page
+
+Create an impressive landing page with:
+- Black Cloud logo and navigation.
+- A strong hero heading such as "Building Games. Exploring Technology. Securing the Future."
+- A short introduction explaining the studio's work.
+- A clear statement that Black Cloud was founded in 2021.
+- Featured games.
+- Latest studio news.
+- Featured cybersecurity tools.
+- CTF activities and achievements.
+- A call to action to explore the studio's projects.
+- A professional footer.
+
+Display featured content dynamically from the database. If no content exists yet, show attractive empty states instead of broken layouts or fabricated achievements.
+
+### B. Games page
+
+Create a dedicated game catalog at `/games`.
+
+Every game should have:
+- Cover image or thumbnail.
+- Game title.
+- Short description.
+- Genre.
+- Platform information.
+- Optional version number.
+- Optional release date.
+- Optional gallery or screenshots.
+- Optional system requirements.
+- A game details page.
+- An availability status controlled by the team.
+
+Support these three publication modes:
+
+1. **Download** — visitors can download the game using a clearly labeled Download button.
+2. **Test Only** — visitors can access the game's testing instructions and, when configured, an approved testing build or demo.
+3. **Download + Test** — visitors can both download the released build and access the testing option.
+
+The team must be able to change the mode for every game independently through the developer portal.
+
+Public button behavior:
+- Download mode: display a Download button.
+- Test Only mode: display a Test Game or Join Testing button.
+- Download + Test mode: display both buttons.
+
+Do not show a button for an unavailable action.
+
+Downloads must work through real file links or secure, short-lived download URLs. Do not create fake buttons that do nothing.
+
+If a game is marked Test Only, never accidentally expose its separate release build through the public API, HTML, page source, or predictable storage URLs.
+
+If testing requires private access, invite codes, or a controlled test environment, configure the test workflow accordingly. Do not create public user accounts to support testing.
+
+If the team has not uploaded a build, show an appropriate message rather than a broken download link.
+
+### C. Game details page
+
+Each game should have its own page, such as `/games/game-slug`.
+
+Include:
+- Cover artwork.
+- Title and description.
+- Screenshots.
+- Genre and platforms.
+- Version and release information when available.
+- Game status.
+- Relevant system requirements.
+- The correct Download and/or Test actions.
+- Optional development updates.
+
+Load the game's content from the database.
+
+Use readable URLs and a clear breadcrumb or back-navigation option.
+
+### D. News page
+
+Create a public news section at `/news`.
+
+Support:
+- Studio announcements.
+- Game releases and updates.
+- Development logs.
+- Project showcases.
+- CTF participation reports.
+- Cybersecurity research announcements.
+- Technical articles and tutorials.
+
+Each article must support:
+- Title.
+- URL slug.
+- Featured image.
+- Short excerpt.
+- Full article content.
+- Publication date.
+- Optional author or team label.
+- Optional category and tags.
+- Draft or published status.
+
+Only published articles should be visible publicly.
+
+Provide individual article pages with readable URLs, responsive formatting, and proper page metadata.
+
+The team must be able to create, edit, preview, publish, unpublish, and delete articles through the private portal.
+
+Do not automatically invent news, competition results, awards, or studio achievements.
+
+### E. Cybersecurity tools page
+
+Create a dedicated page at `/tools`.
+
+This page is a **showcase and information catalog only**.
+
+Each tool card must contain:
+- Thumbnail or icon.
+- Tool title.
+- Short description.
+
+Each tool may have an optional details page containing:
+- Larger thumbnail.
+- Full description.
+- Purpose and intended audience.
+- Supported platforms or technologies.
+- Optional official project link or documentation link.
+- Optional development status.
+
+The team must be able to add, edit, reorder, and remove tools through the developer portal.
+
+**Important:** Cybersecurity tools must not have public download functionality. Do not add download buttons, executable uploads, public binary hosting, installation packages, or automatic tool execution.
+
+The public purpose of this section is to introduce and explain the studio's tools, not distribute the tools themselves.
+
+Do not create a user account system or require authentication to read the tool descriptions.
+
+### F. CTF and cybersecurity research page
+
+Create a page at `/ctf` to present the studio's CTF participation and security research.
+
+Support:
+- Competition name.
+- Competition date.
+- Competition organizer.
+- Team members or team label.
+- Placement or score, when verified and provided.
+- Challenges solved.
+- Write-ups and lessons learned.
+- Research summaries.
+- Responsible disclosure notes.
+- Relevant external references.
+
+Allow the team to publish, edit, and remove entries from the developer portal.
+
+Do not fabricate competition participation, rankings, certifications, or vulnerabilities.
+
+Keep private challenge files and restricted competition materials private. Publish only material the studio is authorized to disclose.
+
+### G. About page
+
+Create `/about` explaining:
+- Who Black Cloud is.
+- The studio's founding in 2021.
+- Game development and publishing.
+- Software development.
+- Cybersecurity experimentation and CTF participation.
+- The studio's goals and technical interests.
+
+Use professional copy that can be edited through the developer portal.
+
+Do not invent team member identities, client names, awards, or commercial partnerships.
+
+### H. Contact page
+
+Create `/contact` with:
+- Studio contact information configurable by the team.
+- Optional public email address.
+- Optional social links.
+- Optional external community links.
+
+Do not require users to register or sign in to contact the studio.
+
+If a contact form is implemented, protect it against spam, validate all inputs, and do not expose private team email addresses unnecessarily.
+
+## 5. Strict authentication requirements
+
+This is one of the most important parts of the entire project.
+
+### Public visitor experience
+
+The public website must have NO:
+- Login button.
+- Sign-in button.
+- Register button.
+- Create account button.
+- User profile system.
+- Public user dashboard.
+- User password reset flow.
+- Public authentication page.
+- Public session-based member area.
+
+Do not create `/login`, `/register`, `/signup`, `/signin`, or similar public account pages.
+
+Do not put any account icon in the public navigation that leads to authentication.
+
+Do not add user authentication just because the framework or starter template provides it by default.
+
+Visitors should be able to browse all public pages without an account.
+
+### Private team administration
+
+Create exactly one intended team login entry point:
+
+`https://subdomain.domain/admin/login`
+
+Treat this as a deployment URL pattern. Replace `subdomain.domain` with the actual domain when configuring production.
+
+The login page must contain:
+- Username field.
+- Password field.
+- Sign In button.
+- Clear validation and authentication error messages.
+- A professional dark-themed design consistent with Black Cloud.
+- No public registration option.
+- No public password-reset or account-creation workflow.
+
+Use the following initial administrator identity:
+
+Username: `DevAdam`
+
+The initial administrator password is the password supplied by the studio owner. Configure it through a secure deployment secret named `ADMIN_PASSWORD`, not by hardcoding the plaintext password in source files.
+
+Provide clear deployment instructions explaining how to set this initial secret securely.
+
+Never expose the administrator password in client-side JavaScript, HTML, frontend environment variables, public API responses, Git repositories, logs, or generated documentation.
+
+The login form must authenticate against the server-side administrator record or the configured authentication provider. Do not merely compare credentials in the browser.
+
+Store passwords using the secure password-handling mechanism of the selected authentication provider. If using a custom authentication system, use a strong password hash such as Argon2id.
+
+The administrator username must be unique, and public account registration must be disabled.
+
+### Admin URL and authorization
+
+The only intended team login route is `/admin/login`.
+
+The protected administration interface should live under `/admin`, with `/admin` redirecting unauthenticated visitors to `/admin/login`.
+
+For example:
+- `/admin/login` — team login.
+- `/admin` — dashboard.
+- `/admin/games` — game management.
+- `/admin/news` — news management.
+- `/admin/tools` — cybersecurity tool catalog management.
+- `/admin/ctf` — CTF and research management.
+- `/admin/settings` — studio settings.
+
+These are private administration routes, not public user accounts.
+
+A hidden URL alone is not security. Protect every admin API endpoint and every sensitive database operation with server-side authentication and authorization checks.
+
+Unauthenticated requests must receive an appropriate 401 response. Authenticated users without the required permissions must receive a 403 response.
+
+Use secure session cookies with HttpOnly, Secure in production, and an appropriate SameSite setting. Implement CSRF protection where applicable, login rate limiting, secure logout, session expiration, and safe session rotation after authentication.
+
+Do not expose admin credentials or protected data to the public client.
+
+If the administrator has not been configured securely, display a deployment error and refuse to enable production administration rather than falling back to default credentials.
+
+## 6. Private developer portal
+
+Build a complete administration dashboard for the Black Cloud team.
+
+The dashboard should have a sidebar, a header, clear navigation, useful statistics, and a consistent visual style.
+
+The home dashboard should display:
+- Total games.
+- Published games.
+- Games available for download.
+- Games available for testing.
+- Draft and published news articles.
+- Total cybersecurity tool entries.
+- Total CTF and research entries.
+
+All statistics must reflect actual database records.
+
+### Game management
+
+Create a full game management interface.
+
+Team members must be able to:
+- Add a game.
+- Edit game details.
+- Upload or replace thumbnails and cover images.
+- Upload release builds and testing builds.
+- Add screenshots.
+- Edit descriptions and metadata.
+- Set version and release information.
+- Select supported platforms.
+- Set publication visibility.
+- Choose Download, Test Only, or Download + Test.
+- Preview the public game page.
+- Publish or unpublish the game.
+- Delete a game with a confirmation step.
+- See upload progress and upload errors.
+
+Use a clear selector for the three availability modes.
+
+Keep the release build and testing build as separate storage objects and separate database references.
+
+Never assume that changing a game's public status automatically makes a private file inaccessible. Enforce file permissions and access rules separately.
+
+### News management
+
+Allow the team to:
+- Create and edit articles.
+- Add featured images.
+- Edit full article content.
+- Save drafts.
+- Preview articles.
+- Publish and unpublish articles.
+- Manage categories and tags.
+- Schedule publication if supported.
+- Delete articles with confirmation.
+
+### Cybersecurity tool management
+
+Allow the team to:
+- Create a tool entry.
+- Upload a thumbnail.
+- Set the title.
+- Write a short description.
+- Add a longer description if desired.
+- Add an optional external documentation or project URL.
+- Edit or delete entries.
+- Reorder featured tools.
+
+Do not add public executable downloads or tool execution features.
+
+### CTF and research management
+
+Allow the team to:
+- Create a CTF entry.
+- Add competition details.
+- Record verified results.
+- Write challenge write-ups.
+- Add references and supporting images.
+- Save drafts.
+- Publish or unpublish entries.
+- Edit or delete entries.
+
+### Studio settings
+
+Provide configurable settings for:
+- Studio description.
+- Logo.
+- Contact information.
+- Social links.
+- Footer text.
+- SEO defaults.
+- Featured home-page content.
+
+Allow only authorized team administrators to modify these settings.
+
+### Admin interface quality
+
+Every management page must include:
+- Loading indicators.
+- Empty states.
+- Form validation.
+- Success and error notifications.
+- Confirmation before destructive actions.
+- Search and filtering where useful.
+- Responsive layouts.
+- Pagination or sensible limits for large lists.
+
+Changes must persist in the database and remain after a reload.
+
+Do not build buttons that only change local interface state without saving the changes to the backend.
+
+## 7. Database structure
+
+Design a persistent and maintainable data model with collections or tables equivalent to:
+
+### Games
+- id
+- title
+- slug
+- shortDescription
+- fullDescription
+- thumbnailUrl
+- coverImageUrl
+- screenshots
+- genre
+- platforms
+- version
+- releaseDate
+- systemRequirements
+- publicationStatus
+- availabilityMode
+- releaseBuildStoragePath
+- testBuildStoragePath
+- testInstructions
+- featured
+- createdAt
+- updatedAt
+
+### News
+- id
+- title
+- slug
+- excerpt
+- content
+- featuredImageUrl
+- category
+- tags
+- authorLabel
+- publicationStatus
+- publishedAt
+- createdAt
+- updatedAt
+
+### Tools
+- id
+- title
+- slug
+- shortDescription
+- fullDescription
+- thumbnailUrl
+- projectUrl
+- documentationUrl
+- status
+- featured
+- sortOrder
+- createdAt
+- updatedAt
+
+### CTF and research entries
+- id
+- title
+- slug
+- competitionName
+- organizer
+- eventDate
+- teamLabel
+- verifiedPlacement
+- score
+- challenges
+- writeup
+- references
+- featuredImageUrl
+- publicationStatus
+- createdAt
+- updatedAt
+
+### Studio settings
+- studioName
+- foundedYear
+- description
+- logoUrl
+- contactEmail
+- socialLinks
+- footerText
+- updatedAt
+
+Adapt the schema to the database technology and use appropriate data types, indexes, validation, and relationships.
+
+Do not store plaintext passwords in these content collections. Keep authentication managed by the trusted authentication provider or a separate secure administrator credential store.
+
+## 8. File storage and download security
+
+Implement a secure upload and file-delivery system.
+
+For game builds:
+- Validate permitted file types and maximum sizes.
+- Enforce upload permissions on the server.
+- Keep uploaded files in private storage by default.
+- Store file references and metadata in the database.
+- Never trust a filename or content type supplied by the browser.
+- Prevent path traversal and unauthorized file access.
+- Use private storage paths that are not directly enumerable.
+- Issue time-limited download URLs only after checking the game's publication status and availability mode.
+- Do not generate public download links for Test Only games' release builds.
+- Make sure unpublished games cannot be downloaded through stale or guessed URLs.
+
+For images:
+- Validate image formats and file sizes.
+- Generate safe filenames.
+- Prevent uploaded content from being treated as executable code.
+- Provide previews and upload error handling.
+
+If the chosen hosting platform imposes upload size limits, explain them and implement a suitable upload approach rather than silently failing.
+
+## 9. Security requirements
+
+Implement security appropriate for a public website with private administrative functionality.
+
+Include:
+- Server-side authentication and authorization.
+- Secure database access rules.
+- Input validation and output escaping.
+- Protection against common injection attacks.
+- Protection against cross-site scripting.
+- CSRF protection where applicable.
+- Login rate limiting and abuse prevention.
+- Secure cookie and session settings.
+- Appropriate CORS configuration.
+- Safe file upload and download handling.
+- Secrets managed through deployment environment variables or a secret manager.
+- Security headers and an appropriate Content Security Policy.
+- Safe error messages that do not reveal secrets.
+- Audit logging for important administrator actions.
+- Dependency and configuration checks.
+- No default production credentials.
+- No sensitive credentials committed to version control.
+
+Do not treat frontend route protection as sufficient security.
+
+If Firebase is used, configure Firestore and Storage security rules explicitly. Do not use open read/write rules as a shortcut. Public visitors may read only approved published content and must not be allowed to modify studio data or access private builds.
+
+Use server-side checks for every privileged operation.
+
+## 10. SEO and performance
+
+Implement:
+- Unique page titles and meta descriptions.
+- Open Graph metadata.
+- Social-sharing images when available.
+- Semantic HTML.
+- Accessible headings and navigation.
+- Descriptive image alternative text.
+- Sitemap generation.
+- Robots directives appropriate to public and private pages.
+- Canonical URLs where appropriate.
+- Optimized thumbnails.
+- Lazy loading for non-critical images.
+- Responsive image sizing.
+- Fast page loading.
+- Useful 404 and error pages.
+
+Do not index private admin pages. Use appropriate no-index directives, but do not rely on them as an access-control mechanism.
+
+Only publish valid, real content to search engines.
+
+## 11. Navigation and footer
+
+The public navigation should contain only:
+
+- Home
+- Games
+- News
+- Tools
+- CTF
+- About
+- Contact
+
+The exact labels may be adjusted for design consistency.
+
+**Never add Login, Sign In, Register, Create Account, or User Profile to the public navigation, mobile menu, or footer.**
+
+The team login page must remain accessible through its direct administration URL.
+
+The public footer should include:
+- Black Cloud branding.
+- A short studio description.
+- The founding year, 2021.
+- Links to public pages.
+- Configurable social links.
+- Copyright information.
+
+Do not put the administrator username or password anywhere in the public website.
+
+## 12. Functional acceptance tests
+
+Before considering the project complete, test every requirement below.
+
+### Public access
+1. A visitor can open the home page without logging in.
+2. A visitor can browse games, news, tools, CTF entries, and the About page without creating an account.
+3. There is no public login button.
+4. There is no registration or sign-up page.
+5. There is no user account creation flow.
+6. Public pages work on desktop and mobile.
+
+### Administrator authentication
+7. The `/admin/login` page exists.
+8. The configured administrator can sign in with the correct credentials.
+9. Incorrect credentials are rejected.
+10. Unauthenticated visitors cannot access the dashboard or admin APIs.
+11. Logout invalidates the administrator's session.
+12. The application does not expose credentials in client-side source code or public responses.
+13. Registration remains disabled.
+
+### Games
+14. The team can create and edit a game.
+15. The team can upload a thumbnail and game build.
+16. The team can select Download mode.
+17. The team can select Test Only mode.
+18. The team can select Download + Test mode.
+19. Each mode produces the correct public buttons.
+20. A Test Only game's release build is inaccessible to public visitors.
+21. A game without an uploaded build does not show a broken download link.
+22. Changes persist after refreshing the page.
+
+### News, tools, and CTF
+23. The team can create and publish a news article.
+24. Draft news is not visible publicly.
+25. The team can add a tool with a thumbnail, title, and description.
+26. Public tool cards do not have download buttons.
+27. The team can publish and edit CTF entries.
+28. Public content is updated from the database rather than hardcoded mock data.
+
+### Quality
+29. Forms validate required fields.
+30. Upload failures display helpful error messages.
+31. Destructive operations require confirmation.
+32. The website works on mobile, tablet, and desktop.
+33. No critical pages or actions contain placeholder functionality.
+
+## 13. Development and deployment instructions
+
+First, inspect the available environment and choose a compatible architecture.
+
+Then:
+1. Create the project structure.
+2. Implement the complete public frontend.
+3. Implement the database schema and persistence layer.
+4. Implement secure team authentication.
+5. Build the private developer portal.
+6. Implement storage, uploads, and protected game downloads.
+7. Add validation and security rules.
+8. Test the public and admin workflows.
+9. Fix errors and verify that all required features work.
+10. Prepare deployment documentation.
+
+Provide a README explaining:
+- How to install dependencies.
+- How to run the development server.
+- How to configure the database.
+- How to configure authentication.
+- How to set `ADMIN_PASSWORD` securely.
+- How to configure file storage.
+- How to deploy the website.
+- How to connect a custom domain.
+- How to upload games.
+- How to manage the three game availability modes.
+- How to publish news, tools, and CTF entries.
+- How to troubleshoot common errors.
+
+Clearly distinguish implemented features from features requiring external credentials, hosting setup, or manual configuration.
+
+Never claim that the website is deployed, tested, or connected to a production database unless that has actually been completed.
+
+## 14. Final instructions to the AI developer
+
+Build Black Cloud as a cohesive, professional, fully functional development studio platform.
+
+Prioritize correct functionality, secure administration, reliable data persistence, clean design, and maintainable code.
+
+Do not omit the developer portal.
+
+Do not replace real backend functionality with fake buttons or mock data.
+
+Do not create public user accounts or a public login system.
+
+Do not add public download buttons to cybersecurity tools.
+
+Do not expose private game builds or administrator credentials.
+
+The final result must let the studio team manage games, control whether each game is downloadable or testable, publish news, maintain a cybersecurity tool catalog, and share CTF activities through one secure private dashboard.
+
+**The most important rule: public visitors browse freely without accounts. Only the Black Cloud team uses `/admin/login` to manage the website.**

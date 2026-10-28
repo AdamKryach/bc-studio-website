@@ -1,0 +1,6 @@
+{
+  "name": "Black Cloud Studio",
+  "description": "Independent game development studio and cybersecurity research lab founded in 2021.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
